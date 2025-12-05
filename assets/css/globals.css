@@ -1,0 +1,61 @@
+/* The Guardian Color Scheme */
+:root {
+  --guardian-blue: #052962;
+  --guardian-light-blue: #506991;
+  --guardian-yellow: #ffe500;
+  --guardian-border: #dcdcdc;
+  --guardian-bg: #ffffff;
+  --guardian-text: #121212;
+  --guardian-grey: #767676;
+}
+
+body {
+  font-family: 'Guardian Text Egyptian Web', Georgia, serif;
+  color: var(--guardian-text);
+  background-color: var(--guardian-bg);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Guardian Egyptian Web', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--guardian-blue);
+}
+
+button {
+  font-family: inherit;
+}

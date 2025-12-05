@@ -1,6 +1,6 @@
 # The Telex
 
-A Guardian-style news website built with React, TypeScript, Tailwind CSS, and Vite.
+A Guardian-style news website built with Nuxt 4 (Vue.js), TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -14,12 +14,11 @@ A Guardian-style news website built with React, TypeScript, Tailwind CSS, and Vi
 
 ## Tech Stack
 
-- **React 18** - UI library
+- **Nuxt 4** - The Vue.js framework
+- **Vue 3** - Progressive JavaScript framework
 - **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **Tailwind CSS v4** - Styling
-- **Radix UI** - Accessible component primitives
-- **Lucide React** - Icons
+- **Tailwind CSS** - Styling framework
+- **Lucide Vue** - Icon library
 
 ## Getting Started
 
@@ -50,7 +49,7 @@ yarn dev
 pnpm dev
 ```
 
-4. Open your browser to `http://localhost:5173`
+4. Open your browser to `http://localhost:3000`
 
 ## Building for Production
 
@@ -62,7 +61,21 @@ yarn build
 pnpm build
 ```
 
-The built files will be in the `dist` directory.
+The built files will be in the `.output` directory.
+
+### Generate Static Site
+
+To generate a static version of the site:
+
+```bash
+npm run generate
+# or
+yarn generate
+# or
+pnpm generate
+```
+
+This will create a static site in the `.output/public` directory.
 
 ## Deployment
 
@@ -80,37 +93,74 @@ vercel
 
 Or connect your GitHub repository to Vercel for automatic deployments.
 
+### Netlify
+
+1. Build the project:
+```bash
+npm run generate
+```
+
+2. Deploy the `.output/public` folder to Netlify
+
 ### Other Platforms
 
-This project can be deployed to any static hosting platform that supports Vite:
-- Netlify
+This Nuxt 4 project can be deployed to various platforms:
 - Cloudflare Pages
-- GitHub Pages
-- AWS S3 + CloudFront
+- GitHub Pages (static generation)
+- AWS Amplify
 - Firebase Hosting
+- Any Node.js hosting platform
 
-Simply build the project and upload the `dist` folder.
+Refer to the [Nuxt deployment documentation](https://nuxt.com/docs/getting-started/deployment) for platform-specific instructions.
 
 ## Project Structure
 
 ```
 /
-├── components/          # React components
-│   ├── ui/             # Shadcn UI components
-│   ├── ArticleCard.tsx
-│   ├── EnhancedTopBar.tsx
-│   ├── FeaturedArticle.tsx
-│   ├── Footer.tsx
-│   ├── Header.tsx
-│   └── ...
-├── styles/             # Global styles
-│   └── globals.css
-├── App.tsx             # Main app component (homepage)
-├── ArticlePage.tsx     # Article page component
-├── src/
-│   └── main.tsx        # Entry point
-└── index.html          # HTML template
+├── assets/
+│   └── css/
+│       └── globals.css     # Global styles
+├── components/             # Vue components
+│   ├── ArticleCard.vue
+│   ├── EnhancedTopBar.vue
+│   ├── FeaturedArticle.vue
+│   ├── Footer.vue
+│   ├── Header.vue
+│   ├── HeaderOption1.vue
+│   ├── NewsSection.vue
+│   └── Sidebar.vue
+├── pages/                  # Page routes
+│   ├── index.vue          # Homepage
+│   └── article.vue        # Article page
+├── app.vue                # Main app wrapper
+├── nuxt.config.ts         # Nuxt configuration
+├── tailwind.config.ts     # Tailwind configuration
+└── package.json           # Dependencies
 ```
+
+## Pages
+
+- `/` - Homepage with breaking news, featured articles, and multiple news sections
+- `/article` - Sample article page with full article layout
+
+## Development
+
+The project uses Nuxt 4's file-based routing. Add new pages by creating Vue files in the `pages/` directory.
+
+Components in the `components/` directory are auto-imported, so no manual imports are needed.
+
+## Customization
+
+### Colors
+
+The Guardian color scheme is defined in `/assets/css/globals.css`:
+- `--guardian-blue: #052962`
+- `--guardian-yellow: #ffe500`
+- Other color variables available in the CSS file
+
+### Typography
+
+Font families and sizes are configured in the global CSS file. The project uses Georgia serif fonts to match The Guardian's typography.
 
 ## License
 
